@@ -1,0 +1,135 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 18px;
+  font-family: 'Arsenal', sans-serif;
+}
+
+body {}
+
+a:visited {
+  color: #bfc8d0;
+  text-decoration: none;
+}
+
+.container {
+  display: flex;
+  align-content: center;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+}
+
+.nav {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-grow: 1;
+  margin-bottom: 3rem;
+  color: #bfc8d0;
+  background-color: #224e79;
+  padding: .5rem 1rem .5rem 1rem;
+  height: 32px;
+}
+
+.logo {
+  align-self: center;
+  padding: .5rem .5rem .5rem .5rem;
+  align-content: center;
+  justify-content: center;
+}
+
+.hero {
+  display: flex;
+  justify-content: center;
+  background-image: url('img/island-2358208_1920.jpg');
+  background-size: cover;
+  align-items: center;
+  height: 500px;
+  width: 100%;
+}
+
+.intro-panel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: flex-start;
+}
+
+.intro-upper {
+  text-align: center;
+  align-self: flex-start;
+  padding: 5rem 0 5rem 0;
+  width: 60%;
+  background-color: white;
+  font-style: italic;
+  color: #a13729;
+}
+
+.intro-lower {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  background-color: #224e79;
+}
+
+.wisdom {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: #224e79;
+  width: 15%;
+  margin: 0 rem 0 2rem;
+  padding-bottom: 5rem;
+  color: #81b4e4;
+}
+
+.bubble {
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+  background-color: white;
+  position: relative;
+  top: -3.5rem;
+  align-self: center;
+}
+
+.skills {
+  display: flex;
+  justify-content: center;
+  margin: 5rem 0 5rem 0;
+  background-color: red;
+}
+
+.skills-panel {
+  display: flex;
+  flex: 50%;
+  flex-direction: column;
+  justify-items:center;
+  align-items: center;
+  background-color: blue;
+  width: 25%;
+}
+
+.skill {
+  display: flex;
+  justify-content:center;
+  justify-self: center;
+  /* align-self:space-around; */
+  width: 50%;
+  margin: 1rem 0rem 1rem 0rem;
+  padding:.5rem .5rem .5rem .5rem;
+  background-color: green;
+}
+
+/* #81b4e4 - light blue BACKGROUND
+#224e79 - dark blue
+#598ab8 - medium blue
+#bfc8d0 - gray
+#a13729 - red */
