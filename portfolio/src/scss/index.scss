@@ -1,0 +1,292 @@
+$header-text: #a13729;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 18px;
+  font-family: "Arsenal", sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  
+  a {
+    color: #bfc8d0;
+    text-decoration: none;
+    font-weight: 100;
+  }
+  
+  a:hover {
+    color: red;
+    font-weight: 700;
+  }
+  
+  h1 {
+    font-size: 3rem;
+    color: $header-text;
+    text-shadow: black 2px 2px 2px;
+    border-bottom: $header-text solid 0.5rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+  }
+}
+
+
+
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  
+  .nav {
+    flex: 1;
+    color: #bfc8d0;
+    background-color: #224e79;
+    padding: 1rem 1rem 1rem 1rem;
+    /* height: 32px; */
+    text-align: center;
+  }
+  .logo {
+    /* align-self: flex-; */
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    justify-content: flex-start;
+  }
+}
+
+.hero {
+  display: flex;
+  justify-content: center;
+  background: url('/img/bg.jpg');
+  background-position: center;
+  background-size: cover;
+  align-items: center;
+  height: 500px;
+  width: 100%;
+}
+
+.intro-panel {
+  display: flex;
+  justify-content: center;
+  align-content: flex-start;
+}
+
+.intro-upper {
+  text-align: center;
+  padding: 5rem 0 5rem 0;
+  width: 60%;
+  background-color: white;
+  font-style: italic;
+  color: #a13729;
+  margin: auto;
+}
+
+.intro-lower {
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+  background-color: #224e79;
+  width: 50%;
+}
+
+.wisdom {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  text-align: center;
+  background-color: #224e79;
+  width: 15%;
+  /* margin: 0 rem 0 2rem; */
+  padding-bottom: 2.5rem;
+  color: #81b4e4;
+
+  h2 {
+    align-self: center;
+  }
+
+  .bubble {
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    background-color: white;
+    position: relative;
+    top: -3.5rem;
+    align-self: center;
+  }
+}
+
+.skills {
+  h2 {
+    color: #a13729;
+    text-align: center;
+    padding-top: 5rem;
+  }
+
+  .skills-block {
+    display: flex;
+    justify-content: center;
+    margin: 5rem 0 5rem 0;
+    background-color: white;
+  }
+
+  .skills-panel {
+    display: flex;
+    flex: 50%;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    background-color: white;
+    width: 75%;
+  }
+
+  .skill {
+    display: flex;
+    justify-content: flex-start;
+    justify-self: center;
+    align-self: center;
+    /* align-self:space-around; */
+    /* padding: .1rem .1rem .1rem .1rem; */
+    width: 75%;
+    margin: 1rem 0rem 1rem 0rem;
+    background-color: #81b4e4;
+    height: 2rem;
+    border: black solid 1px;
+    border-left: black solid 3px;
+    border-radius: 1rem;
+  }
+  .skill-bar {
+    flex-grow: 0.5;
+    align-self: center;
+    background: #a13729;
+    color: #81b4e4;
+    padding-left: 1rem;
+  }
+}
+
+.portfolio {
+  display: flex;
+  flex-direction: column;
+  background: #224e79;
+  padding-bottom: 5rem;
+
+  h2 {
+    text-align: center;
+    padding: 5rem 0 5rem 0;
+    color: #81b4e4;
+  }
+
+  .portfolio-panel {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.project {
+  text-align: center;
+  border: black 1px solid;
+  border-radius: 0.5rem;
+  margin: 0.5rem 5rem 0 5rem;
+  background: #81b4e4;
+
+  img {
+    max-width: 35%;
+    margin: 1rem 0 1rem 0;
+  }
+
+  p {
+    margin: 0 0.5rem 1rem 0.5rem;
+  }
+}
+
+.about {
+  h2 {
+    margin: 5rem 0 5rem 0;
+  }
+
+  .about-panel {
+    display: flex;
+
+    .image {
+      flex:1;
+      justify-content: flex-start;
+      background: black;
+    }
+
+    img {
+      border-radius: 50%;
+    }
+
+    article {
+      margin: 0 0 5rem 3rem;
+      width: 40%;
+      flex:1;
+      background: red;
+      
+    p {
+        // align-self: flex-start;
+        margin: 0.5rem 0 0.5rem 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .intro-panel {
+    align-content: center;
+    flex-direction: column;
+  }
+  .intro-lower {
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-around;
+    width: 100%;
+    padding-bottom: 4rem;
+  }
+
+  .bubble2 {
+    position: relative;
+    top: -1rem;
+    align-self: center;
+  }
+
+  .skills-block {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .portfolio-panel {
+    flex-direction: column;
+  }
+
+  .about-panel {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 75%;
+    text-align: justify;
+    
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .navbar {
+    flex-direction: column;
+  }
+  .nav {
+    width: 100%;
+    padding: 0.5rem 0 0.5rem 0;
+  }
+}
+
+/* #81b4e4 - light blue BACKGROUND
+#224e79 - dark blue
+#598ab8 - medium blue
+#bfc8d0 - gray
+#a13729 - red
+#db9035 - orange */

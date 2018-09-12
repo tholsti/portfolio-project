@@ -1,4 +1,2 @@
-# portfolio
-portfolio practice
-
-creating a portfolio page from a mockup
+# project-starter
+template for a quick start
