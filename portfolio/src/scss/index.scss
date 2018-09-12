@@ -1,4 +1,8 @@
 $header-text: #a13729;
+$bg-pri: #224e79;
+$bg-sec: #bfc8d0;
+$sec-text: #81b4e4;
+
 
 * {
   margin: 0;
@@ -8,30 +12,33 @@ $header-text: #a13729;
 html {
   font-size: 18px;
   font-family: "Arsenal", sans-serif;
-}
+  }
 
 body {
   display: flex;
   flex-direction: column;
-  
+  background-color: $bg-sec;
+  max-width: 1200px;
+  margin:auto;
+
   a {
-    color: #bfc8d0;
+    color: $bg-sec;
     text-decoration: none;
     font-weight: 100;
   }
-  
+
   a:hover {
     color: red;
     font-weight: 700;
   }
-  
+
   h1 {
     font-size: 3rem;
     color: $header-text;
     text-shadow: black 2px 2px 2px;
     border-bottom: $header-text solid 0.5rem;
   }
-  
+
   h2 {
     font-size: 2rem;
     font-weight: 700;
@@ -40,22 +47,19 @@ body {
 }
 
 
-
 .navbar {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  
+
   .nav {
     flex: 1;
-    color: #bfc8d0;
-    background-color: #224e79;
+    color: $bg-sec;
+    background-color: $bg-pri;
     padding: 1rem 1rem 1rem 1rem;
-    /* height: 32px; */
     text-align: center;
   }
   .logo {
-    /* align-self: flex-; */
     padding: 0.5rem 0.5rem 0.5rem 0.5rem;
     justify-content: flex-start;
   }
@@ -64,7 +68,7 @@ body {
 .hero {
   display: flex;
   justify-content: center;
-  background: url('/img/bg.jpg');
+  background: url("/img/bg.jpg");
   background-position: center;
   background-size: cover;
   align-items: center;
@@ -82,9 +86,9 @@ body {
   text-align: center;
   padding: 5rem 0 5rem 0;
   width: 60%;
-  background-color: white;
+  background-color: $bg-sec;
   font-style: italic;
-  color: #a13729;
+  color: $header-text;
   margin: auto;
 }
 
@@ -92,39 +96,41 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: baseline;
-  background-color: #224e79;
+  background-color: $bg-pri;
   width: 50%;
+
+  .wisdom {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    text-align: center;
+    background-color: $bg-pri;
+    width: 15%;
+    /* margin: 0 rem 0 2rem; */
+    padding-bottom: 2.5rem;
+    color: $sec-text;
+  
+    h2 {
+      align-self: center;
+    }
+  
+    .bubble {
+      width: 7rem;
+      height: 7rem;
+      border-radius: 50%;
+      background-color: $bg-sec;
+      position: relative;
+      top: -3.5rem;
+      align-self: center;
+    }
+  }
 }
 
-.wisdom {
-  display: flex;
-  flex-direction: column;
-  align-self: flex-start;
-  text-align: center;
-  background-color: #224e79;
-  width: 15%;
-  /* margin: 0 rem 0 2rem; */
-  padding-bottom: 2.5rem;
-  color: #81b4e4;
 
-  h2 {
-    align-self: center;
-  }
-
-  .bubble {
-    width: 7rem;
-    height: 7rem;
-    border-radius: 50%;
-    background-color: white;
-    position: relative;
-    top: -3.5rem;
-    align-self: center;
-  }
-}
 
 .skills {
   h2 {
-    color: #a13729;
+    color: $header-text;
     text-align: center;
     padding-top: 5rem;
   }
@@ -133,7 +139,7 @@ body {
     display: flex;
     justify-content: center;
     margin: 5rem 0 5rem 0;
-    background-color: white;
+    background-color: $bg-sec;
   }
 
   .skills-panel {
@@ -142,7 +148,7 @@ body {
     flex-direction: column;
     justify-items: center;
     align-items: center;
-    background-color: white;
+    background-color: $bg-sec;
     width: 75%;
   }
 
@@ -151,11 +157,9 @@ body {
     justify-content: flex-start;
     justify-self: center;
     align-self: center;
-    /* align-self:space-around; */
-    /* padding: .1rem .1rem .1rem .1rem; */
     width: 75%;
     margin: 1rem 0rem 1rem 0rem;
-    background-color: #81b4e4;
+    background-color: $sec-text;
     height: 2rem;
     border: black solid 1px;
     border-left: black solid 3px;
@@ -164,8 +168,8 @@ body {
   .skill-bar {
     flex-grow: 0.5;
     align-self: center;
-    background: #a13729;
-    color: #81b4e4;
+    background: $header-text;
+    color: $sec-text;
     padding-left: 1rem;
   }
 }
@@ -179,7 +183,7 @@ body {
   h2 {
     text-align: center;
     padding: 5rem 0 5rem 0;
-    color: #81b4e4;
+    color: $sec-text;
   }
 
   .portfolio-panel {
@@ -193,7 +197,7 @@ body {
   border: black 1px solid;
   border-radius: 0.5rem;
   margin: 0.5rem 5rem 0 5rem;
-  background: #81b4e4;
+  background: $sec-text;
 
   img {
     max-width: 35%;
@@ -208,34 +212,59 @@ body {
 .about {
   h2 {
     margin: 5rem 0 5rem 0;
+    color: $header-text;
   }
 
   .about-panel {
     display: flex;
+    flex-direction: row;
+    padding: 0 0 5rem 0;
 
-    .image {
-      flex:1;
-      justify-content: flex-start;
-      background: black;
+    .about-item {
+      display:flex;
+      justify-content: flex-end;
+      width: 50vw;
+      background: $bg-sec;
+      padding: 0 2.5rem 5rem 5rem;
+      height:100%;
     }
 
     img {
       border-radius: 50%;
+      border: 1px solid $bg-pri;
     }
 
-    article {
-      margin: 0 0 5rem 3rem;
-      width: 40%;
-      flex:1;
-      background: red;
+    .about-text {
+      flex-direction: column;
+      justify-content: flex-start;
+      padding: 0 5rem 5rem 2.5rem;
       
-    p {
-        // align-self: flex-start;
-        margin: 0.5rem 0 0.5rem 0;
-      }
     }
   }
+  
+    .about-item {
+      padding:0 0 0 0;
+      margin:0;
+      width:100%;
+    }
+  }
+
+@media screen and (max-width: 1000px) { 
+    .about-panel {
+      flex-direction: column !important;
+      align-items: center;
+      text-align: center;
+    }
+    .about .about-panel .about-item {
+      justify-content: center;
+      padding: 0 0 3rem 0;
+    }
+    .about .about-text {
+      padding: 0 0 0 0;
+    }
 }
+
+
 
 @media screen and (max-width: 800px) {
   .intro-panel {
@@ -265,13 +294,7 @@ body {
     flex-direction: column;
   }
 
-  .about-panel {
-    flex-direction: column;
-    align-items: flex-start;
-    width: 75%;
-    text-align: justify;
-    
-  }
+  
 }
 
 @media screen and (max-width: 650px) {
@@ -284,7 +307,7 @@ body {
   }
 }
 
-/* #81b4e4 - light blue BACKGROUND
+/* $sec-text - light blue BACKGROUND
 #224e79 - dark blue
 #598ab8 - medium blue
 #bfc8d0 - gray
