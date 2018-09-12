@@ -1,2 +1,2 @@
-# project-starter
-template for a quick start
+# portfolio project
+portfolio page for front-end studies
