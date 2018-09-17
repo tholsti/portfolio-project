@@ -1,8 +1,10 @@
 $header-text: #a13729;
 $bg-pri: #224e79;
-$bg-sec: #bfc8d0;
+$bg-sec: #ffffff;
 $sec-text: #81b4e4;
-
+$hover: red;
+$dark: #000000;
+$h-padding: 4rem 0 4rem 0;
 
 * {
   margin: 0;
@@ -11,15 +13,16 @@ $sec-text: #81b4e4;
 
 html {
   font-size: 18px;
-  font-family: "Arsenal", sans-serif;
-  }
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+}
 
 body {
   display: flex;
   flex-direction: column;
   background-color: $bg-sec;
   max-width: 1200px;
-  margin:auto;ls
+  margin: auto;
 
   a {
     color: $bg-sec;
@@ -28,14 +31,14 @@ body {
   }
 
   a:hover {
-    color: red;
+    color: $hover;
     font-weight: 700;
   }
 
   h1 {
     font-size: 3rem;
     color: $header-text;
-    text-shadow: black 2px 2px 2px;
+    text-shadow: $dark 2px 2px 2px;
     border-bottom: $header-text solid 0.5rem;
   }
 
@@ -45,7 +48,6 @@ body {
     text-align: center;
   }
 }
-
 
 .navbar {
   display: flex;
@@ -76,15 +78,22 @@ body {
   width: 100%;
 }
 
-.intro-panel {
+.blue-elements {
+  // shared components for all flex container elements with the blue background
   display: flex;
   justify-content: center;
   align-content: flex-start;
+  background: #224e79;
+  color: $sec-text;
+}
+
+.intro-panel {
+  @extend .blue-elements;
 }
 
 .intro-upper {
   text-align: center;
-  padding: 5rem 0 5rem 0;
+  padding: $h-padding;
   width: 60%;
   background-color: $bg-sec;
   font-style: italic;
@@ -106,14 +115,12 @@ body {
     text-align: center;
     background-color: $bg-pri;
     width: 15%;
-    /* margin: 0 rem 0 2rem; */
     padding-bottom: 2.5rem;
-    color: $sec-text;
-  
+
     h2 {
       align-self: center;
     }
-  
+
     .bubble {
       width: 7rem;
       height: 7rem;
@@ -126,8 +133,6 @@ body {
   }
 }
 
-
-
 .skills {
   h2 {
     color: $header-text;
@@ -138,7 +143,7 @@ body {
   .skills-block {
     display: flex;
     justify-content: center;
-    margin: 5rem 0 5rem 0;
+    margin: $h-padding;
     background-color: $bg-sec;
   }
 
@@ -161,8 +166,8 @@ body {
     margin: 1rem 0rem 1rem 0rem;
     background-color: $sec-text;
     height: 2rem;
-    border: black solid 1px;
-    border-left: black solid 3px;
+    border: $dark solid 1px;
+    border-left: $dark solid 3px;
     border-radius: 1rem;
   }
   .skill-bar {
@@ -175,14 +180,13 @@ body {
 }
 
 .portfolio {
-  display: flex;
+  @extend .blue-elements;
   flex-direction: column;
-  background: #224e79;
   padding-bottom: 5rem;
 
   h2 {
     text-align: center;
-    padding: 5rem 0 5rem 0;
+    padding: $h-padding;
     color: $sec-text;
   }
 
@@ -194,13 +198,14 @@ body {
 
 .project {
   text-align: center;
-  border: black 1px solid;
+  border: $dark 1px solid;
   border-radius: 0.5rem;
   margin: 0.5rem 5rem 0 5rem;
   background: $sec-text;
+  color: $dark;
 
   img {
-    max-width: 35%;
+    max-width: 50%;
     margin: 1rem 0 1rem 0;
   }
 
@@ -209,9 +214,17 @@ body {
   }
 }
 
+@media screen and (max-width: 800px) {
+  .portfolio {
+    .portfolio-panel {
+      flex-direction: column;
+    }
+  }
+}
+
 .about {
   h2 {
-    margin: 5rem 0 5rem 0;
+    margin: $h-padding;
     color: $header-text;
   }
 
@@ -221,12 +234,12 @@ body {
     padding: 0 0 5rem 0;
 
     .about-item {
-      display:flex;
+      display: flex;
       justify-content: flex-end;
       width: 50vw;
       background: $bg-sec;
       padding: 0 2.5rem 5rem 5rem;
-      height:100%;
+      height: 100%;
     }
 
     img {
@@ -238,33 +251,36 @@ body {
       flex-direction: column;
       justify-content: flex-start;
       padding: 0 5rem 5rem 2.5rem;
-      
-    }
-  }
-  
-    .about-item {
-      padding:0 0 0 0;
-      margin:0;
-      width:100%;
     }
   }
 
-@media screen and (max-width: 1000px) { 
+  @media screen and (max-width: 800px) {
     .about-panel {
-      flex-direction: column !important;
-      align-items: center;
-      text-align: center;
+      flex-direction: column;
     }
-    .about .about-panel .about-item {
-      justify-content: center;
-      padding: 0 0 3rem 0;
-    }
-    .about .about-text {
-      padding: 0 0 0 0;
-    }
+  }
+
+  .about-item {
+    padding: 0 0 0 0;
+    margin: 0;
+    width: 100%;
+  }
 }
 
-
+@media screen and (max-width: 1000px) {
+  .about-panel {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .about .about-panel .about-item {
+    justify-content: center;
+    padding: 0 0 3rem 0;
+  }
+  .about .about-text {
+    padding: 0 0 0 0;
+  }
+}
 
 @media screen and (max-width: 800px) {
   .intro-panel {
@@ -293,8 +309,6 @@ body {
   .portfolio-panel {
     flex-direction: column;
   }
-
-  
 }
 
 @media screen and (max-width: 650px) {
@@ -304,6 +318,40 @@ body {
   .nav {
     width: 100%;
     padding: 0.5rem 0 0.5rem 0;
+  }
+}
+
+.find-me {
+  display:flex;
+  flex-direction: column;
+  background-color: $sec-text;
+  color: $bg-pri;
+
+  h2 {
+    padding: $h-padding;
+  }
+
+  .icons {
+    justify-items: space-around;
+    a {
+      color:$bg-pri;
+    }
+    a:hover{
+      color:$hover;
+      font-weight: unset;
+    }
+    font-size: 5rem;
+    padding-bottom: 5rem;
+    text-align: center;
+  }
+
+}
+
+.contact {
+  background-color: $bg-pri;
+  h2 {
+    margin: $h-padding;
+    color: $sec-text;
   }
 }
 
