@@ -1,8 +1,16 @@
 const gulp   = require('gulp'),
       csso   = require('gulp-csso'),
       sass   = require('gulp-sass'),
-      del    = require('del');
- 
+      del    = require('del'),
+      browserSync = require('browser-sync').create();
+       
+// Start BrowserSync
+// gulp.task('browser-sync', function() {
+//   browserSync.init({
+//     proxy: 'http://localhost:8080'
+//   })
+// })
+
 // Clean the CSS folder
 gulp.task('css:clean', function() {
   return del('public/*.css', { force: true });
@@ -22,7 +30,8 @@ gulp.task('css:compile', ['css:clean'], function() {
     .pipe(sass())
     .on('error', sass.logError)
     .pipe(csso())
-    .pipe(gulp.dest('public'));
+    .pipe(gulp.dest('public'))
+    .pipe(browserSync.stream());
 });
  
 // Copy all assets
@@ -34,6 +43,11 @@ gulp.task('assets:copy', ['assets:clean'], function () {
 gulp.task('build', ['css:compile', 'assets:copy']);
  
 gulp.task('develop', ['build'], function() {
+  browserSync.init({
+    server: "public/"
+  });
   gulp.watch('src/scss/*', ['css:compile']);
   gulp.watch('src/assets/**/*', ['assets:copy']);
+  gulp.watch('src/**/*').on("change", browserSync.reload);
 });
+

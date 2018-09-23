@@ -169,14 +169,20 @@ body {
     height: 2rem;
     border: $dark solid 1px;
     border-left: $dark solid 3px;
-    border-radius: 1rem;
+    border-radius: .3rem;
   }
-  .skill-bar {
-    flex-grow: 0.5;
-    align-self: center;
+  .skill-name {
+    align-self:center;
+    font-weight: 500;
+    padding: 0 1em 0 1em;
+    width: 5rem;
+  }
+
+  .skill-bar {  
+    // align-self: flex-st;
     background: $header-text;
     color: $sec-text;
-    padding-left: 1rem;
+    // padding: 1rem;
   }
 }
 
