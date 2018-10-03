@@ -18,13 +18,16 @@ html {
   font-weight: 300;
 }
 
-body {
+.container {
   display: flex;
   flex-direction: column;
   background-color: $bg-sec;
-  max-width: 1200px;
   margin: auto;
+  align-items: center;
+  width: 100vw;
+}
 
+body {
   a {
     color: $bg-sec;
     text-decoration: none;
@@ -50,25 +53,31 @@ body {
   }
 }
 
-.navbar {
+nav {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  flex-direction: column;
+  // justify-content: space-around;
+  // align-items: center;
+  width: 100%;
 
   .nav {
-    flex: 1;
     color: $bg-sec;
     background-color: $bg-pri;
     padding: 1rem 1rem 1rem 1rem;
     text-align: center;
+    flex-grow: 1;
   }
   .logo {
     padding: 0.5rem 0.5rem 0.5rem 0.5rem;
-    justify-content: flex-start;
+    margin: auto;
   }
 }
 
-.hero {
+section {
+  max-width: 1200px;
+}
+
+header {
   display: flex;
   justify-content: center;
   background: url("/img/bg.jpg");
@@ -89,7 +98,11 @@ body {
 }
 
 .intro-panel {
-  @extend .blue-elements;
+  display: flex;
+  justify-content: center;
+  align-content: flex-start;
+  background: #224e79;
+  color: $sec-text;
 }
 
 .intro-upper {
@@ -102,35 +115,30 @@ body {
   margin: auto;
 }
 
-.intro-lower {
+.wisdom {
   display: flex;
-  justify-content: space-around;
-  align-items: baseline;
-  background-color: $bg-pri;
-  width: 50%;
+  flex-direction: column;
+  align-self: flex-start;
+  text-align: center;
+  padding: 1rem 2rem $b-padding 2rem;
 
-  .wisdom {
-    display: flex;
-    flex-direction: column;
-    align-self: flex-start;
-    text-align: center;
-    background-color: $bg-pri;
-    width: 15%;
-    padding-bottom: $b-padding;
+  h2 {
+    align-self: center;
+  }
 
-    h2 {
-      align-self: center;
-    }
-
-    .bubble {
-      width: 7rem;
-      height: 7rem;
-      border-radius: 50%;
-      background-color: $bg-sec;
-      position: relative;
-      top: -3.5rem;
-      align-self: center;
-    }
+  .bubble {
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    background-color: $bg-sec;
+    position: relative;
+    top: -4.5rem;
+    align-self: center;
+  }
+  .bubble2,
+  .bubble3,
+  .bubble4 {
+    display: none;
   }
 }
 
@@ -142,47 +150,45 @@ body {
   }
 
   .skills-block {
-    display: flex;
-    justify-content: center;
-    margin: $h-padding;
-    background-color: $bg-sec;
+    // display: flex;
+    // justify-content: center;
+    // margin: $h-padding;
+    // background-color: $bg-sec;
   }
 
   .skills-panel {
     display: flex;
-    flex: 50%;
+    // flex: 50%;
     flex-direction: column;
-    justify-items: center;
-    align-items: center;
-    background-color: $bg-sec;
-    width: 75%;
+    // justify-items: center;
+    // align-items: center;
+    // background-color: $bg-sec;
+    // width: 75%;
   }
 
   .skill {
     display: flex;
-    justify-content: flex-start;
-    justify-self: center;
-    align-self: center;
-    width: 75%;
+    // justify-content: flex-start;
+    // justify-self: center;
+    // align-self: center;
+    // width: 75%;
     margin: 1rem 0rem 1rem 0rem;
     background-color: $sec-text;
     height: 2rem;
     border: $dark solid 1px;
     border-left: $dark solid 3px;
-    border-radius: .3rem;
+    border-radius: 0.3rem;
   }
   .skill-name {
-    align-self:center;
+    align-self: center;
     font-weight: 500;
     padding: 0 1em 0 1em;
     width: 5rem;
   }
 
-  .skill-bar {  
-    // align-self: flex-st;
+  .skill-bar {
     background: $header-text;
     color: $sec-text;
-    // padding: 1rem;
   }
 }
 
@@ -289,7 +295,7 @@ body {
   }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) {
   .intro-panel {
     align-content: center;
     flex-direction: column;
@@ -303,9 +309,7 @@ body {
   }
 
   .bubble2 {
-    position: relative;
-    top: -1rem;
-    align-self: center;
+    display: none;
   }
 
   .skills-block {
@@ -318,8 +322,8 @@ body {
   }
 }
 
-@media screen and (max-width: 650px) {
-  .navbar {
+@media screen and (max-width: 700px) {
+  nav {
     flex-direction: column;
   }
   .nav {
@@ -329,7 +333,7 @@ body {
 }
 
 .find-me {
-  display:flex;
+  display: flex;
   flex-direction: column;
   background-color: $sec-text;
   color: $bg-pri;
@@ -341,21 +345,20 @@ body {
   .icons {
     justify-items: space-around;
     a {
-      color:$bg-pri;
+      color: $bg-pri;
     }
-    a:hover{
-      color:$hover;
+    a:hover {
+      color: $hover;
       font-weight: unset;
     }
     font-size: 5rem;
     padding-bottom: $b-padding;
     text-align: center;
   }
-
 }
 
 .contact {
-  display:flex;
+  display: flex;
   background-color: $bg-pri;
   flex-direction: column;
   align-items: center;
@@ -370,9 +373,10 @@ body {
   }
 }
 
-/* $sec-text - light blue BACKGROUND
-#224e79 - dark blue
-#598ab8 - medium blue
-#bfc8d0 - gray
-#a13729 - red
-#db9035 - orange */
+footer {
+  padding: $b-padding;
+  text-align: center;
+  h2 {
+    color: $header-text;
+  }
+}
