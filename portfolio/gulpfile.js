@@ -25,7 +25,7 @@ gulp.task('assets:clean', function() {
 });
  
 // Compile CSS
-gulp.task('css:compile', ['css:clean'], function() {
+gulp.task('css:compile', function() {
   return gulp.src('src/scss/*.scss')
     .pipe(sass())
     .on('error', sass.logError)
@@ -35,7 +35,7 @@ gulp.task('css:compile', ['css:clean'], function() {
 });
  
 // Copy all assets
-gulp.task('assets:copy', ['assets:clean'], function () {
+gulp.task('assets:copy', function () {
   gulp.src('src/assets/**/*')
     .pipe(gulp.dest('public'));
 });

@@ -37,9 +37,9 @@ body {
     font-size: 3rem;
     color: $header-text;
     text-shadow: $dark 2px 2px 2px;
-    border-bottom: $header-text solid 0.5rem;
   }
 
+  
   h2 {
     font-size: 2.5rem;
     font-weight: 700;
@@ -83,6 +83,7 @@ section {
 
 header {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   background-color: rgba(34, 78, 121, 0.8);
   background-blend-mode: multiply;
@@ -381,7 +382,7 @@ header {
 
     input, textarea {
       flex: 1 0;
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       margin: 1rem;
       border-radius: .5rem;
       border: black solid 2px;
@@ -406,4 +407,31 @@ footer {
   h2 {
     color: $header-text;
   }
+}
+
+
+// animations
+
+  
+.h1-underline {
+  width:20px;
+  background-color: $header-text;
+}
+
+.h1-underline-end {
+  width: 80vw;
+  height: .5rem;
+  transition-delay: 1s;
+  transition-duration: 1s;
+} 
+
+@keyframes growBar {
+  from {
+    width: 0;
+    visibility: visible;
+  }
+}
+
+.growBar {
+  animation-name: growBar;
 }
