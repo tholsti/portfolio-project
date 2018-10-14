@@ -1,4 +1,37 @@
+
 <!DOCTYPE html>
+
+<?php
+
+require "DBBlackbox.php";
+
+session_start();
+
+$msg = [
+    "name" => null,
+    "email" => null,
+    "msg" => null,
+];
+
+if ($_POST) {
+    $msg["name"] = $_POST["name"];
+    $msg["email"] = $_POST["email"];
+    $msg["msg"] = $_POST["msg"];
+
+    $message = insert($msg);
+    header("Location: index.php#contact");
+}
+
+$messages = [];
+
+if (!empty($_SESSION['flashed_messages'])) {
+    $messages = $_SESSION['flashed_messages'];
+    unset($_SESSION['flashed_messages']);
+}
+
+?>
+
+
 <html>
 
 <head>
@@ -200,7 +233,25 @@
         Contact me
       </h2>
 
-      <form action="form.php" method="post">
+      <form action="" method="post">
+        <?php
+
+        if ($_POST) {
+            $messages[] = '
+            <div class="sent">
+            Thank you for your contact! I will get back to you as soon as possible.
+            </div>
+            ';
+            $_SESSION['flashed_messages'] = $messages;
+        }
+        ?>
+
+        <?php foreach ($messages as $sent): ?>
+          <div>
+              <?php echo $sent; ?>
+          </div>
+        <?php endforeach;?>
+
         <div class="row">
           <input type="text" class="form-control form-control-lg" placeholder="Name" name="name">
           <input type="text" class=" form-control form-control-lg" placeholder="Email address" name ="email">
@@ -209,7 +260,7 @@
           <textarea name="msg" id="" cols="30" rows="10" placeholder="Leave me a note!"></textarea>
         </div>
         <div class="row">
-          <input type="submit" value="Submit">
+          <input id="submit" type="submit" value="Submit">
         </div>
       </form>
     </section>
@@ -221,7 +272,7 @@
         <div class="line wow bounceInRight"></div>
       </div>
       Copyright Tomi Holstila 2018
-      
+
     </footer>
   </div>
   <script src="wow.min.js"></script>
