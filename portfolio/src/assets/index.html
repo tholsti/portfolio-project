@@ -11,7 +11,7 @@
     rel="stylesheet" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
     crossorigin="anonymous">
-    <link rel="stylesheet" href="animate.css">
+  <link rel="stylesheet" href="animate.css">
 </head>
 
 <body>
@@ -77,9 +77,9 @@
         <div class="skill-name">
           HTML5
         </div>
-        <div class="knob wow growBar" style="width:100%"></div>
+
         <div class="skill-bar">
-          &nbsp;
+          <div class="knob wow growBar" style="width:100%"> </div>
         </div>
       </div>
 
@@ -87,9 +87,8 @@
         <div class="skill-name">
           CSS3 / SASS
         </div>
-        <div class="knob wow growBar" style="width:75%"></div>
         <div class="skill-bar">
-          &nbsp;
+          <div class="knob wow growBar" style="width:75%"></div>
         </div>
       </div>
 
@@ -97,9 +96,8 @@
         <div class="skill-name">
           JAVASCRIPT
         </div>
-        <div class="knob wow growBar" style="width:60%"></div>
         <div class="skill-bar">
-          &nbsp;
+          <div class="knob wow growBar" style="width:60%"></div>
         </div>
       </div>
 
@@ -107,9 +105,8 @@
         <div class="skill-name">
           REACT.JS
         </div>
-        <div class="knob wow growBar" style="width:1%"></div>
         <div class="skill-bar">
-          &nbsp;
+          <div class="knob wow growBar" style="width:1%"></div>
         </div>
       </div>
 
@@ -117,9 +114,8 @@
         <div class="skill-name">
           PHP
         </div>
-        <div class="knob wow growBar" style="width:50%"></div>
         <div class="skill-bar">
-          &nbsp;
+          <div class="knob wow growBar" style="width:50%"></div>
         </div>
       </div>
 
@@ -127,9 +123,8 @@
         <div class="skill-name">
           MYSQL
         </div>
-        <div class="knob wow growBar" style="width:40%"></div>
         <div class="skill-bar">
-          &nbsp;
+          <div class="knob wow growBar" style="width:40%"></div>
         </div>
       </div>
     </section>
@@ -205,23 +200,28 @@
         Contact me
       </h2>
 
-      <form>
+      <form action="form.php" method="post">
         <div class="row">
-          <input type="text" class="form-control form-control-lg" placeholder="First name">
-          <input type="text" class=" form-control form-control-lg" placeholder="Last name">
+          <input type="text" class="form-control form-control-lg" placeholder="Name" name="name">
+          <input type="text" class=" form-control form-control-lg" placeholder="Email address" name ="email">
         </div>
         <div class="row">
-          <textarea name="" id="" cols="30" rows="10" placeholder="Leave me a note!"></textarea>
+          <textarea name="msg" id="" cols="30" rows="10" placeholder="Leave me a note!"></textarea>
         </div>
         <div class="row">
-          <input type="submit" value="SUBMIT">
+          <input type="submit" value="Submit">
         </div>
       </form>
     </section>
 
     <footer>
-      <h2>Nice to meet you</h2>
+      <div class="line-head">
+        <div class="line wow bounceInLeft"></div>
+        <h2>Nice to meet you</h2>
+        <div class="line wow bounceInRight"></div>
+      </div>
       Copyright Tomi Holstila 2018
+      
     </footer>
   </div>
   <script src="wow.min.js"></script>

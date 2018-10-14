@@ -122,7 +122,7 @@ header {
   display: flex;
   flex: 1;
   flex-direction: column;
-  width: 75%;
+  // width: 75%;
   text-align: center;
   padding: 1rem 3rem $b-padding 3rem;
   margin: auto;
@@ -160,6 +160,7 @@ header {
   .wisdom {
     flex: 1 0;  
     margin: initial;
+    align-items: space-around;
 
     .bubble2 {
       display: block;
@@ -175,7 +176,6 @@ header {
     flex-direction: row;
     justify-content: space-around;
     align-items: baseline;
-    border: 1px solid red;
   }
 
   .bubble3,
@@ -217,12 +217,14 @@ header {
 
   .skill-bar {
     flex: 1;
-    background: $sec-text;
+    // background: $sec-text;
     height: 2rem;
+
   }
 
   .knob {
     background-color: $header-text;
+    height: 1.9rem;
   }
 }
 
@@ -402,12 +404,24 @@ header {
 }
 
 footer {
-  padding: $b-padding;
   text-align: center;
+  padding: $b-padding;
+
   h2 {
     color: $header-text;
   }
+  .line {
+    flex: 1;
+    height: 6px;
+    margin: 0 1rem;
+    background-color: $bg-pri;
+  }
+  .line-head {
+    display:flex;
+    align-items: center;
+  }
 }
+
 
 
 // animations
