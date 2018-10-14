@@ -2,7 +2,7 @@ $header-text: #a13729;
 $bg-pri: #224e79;
 $bg-sec: #ffffff;
 $sec-text: #81b4e4;
-$hover: red;
+$hover: black;
 $dark: #000000;
 $h-padding: 4rem 0 4rem 0;
 $b-padding: 4rem;
@@ -10,6 +10,7 @@ $b-padding: 4rem;
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 html {
@@ -18,16 +19,9 @@ html {
   font-weight: 300;
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  background-color: $bg-sec;
-  margin: auto;
-  align-items: center;
-  width: 100vw;
-}
-
 body {
+  padding: 0 0.5rem 0 0.5rem;
+
   a {
     color: $bg-sec;
     text-decoration: none;
@@ -47,17 +41,20 @@ body {
   }
 
   h2 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: 700;
     text-align: center;
   }
 }
 
+.container {
+  background-color: $bg-sec;
+  margin: 0 auto;
+}
+
 nav {
   display: flex;
   flex-direction: column;
-  // justify-content: space-around;
-  // align-items: center;
   width: 100%;
 
   .nav {
@@ -73,34 +70,33 @@ nav {
   }
 }
 
+@media screen and (min-width: 700px) {
+  nav {
+    flex-direction: row;
+  }
+}
+
 section {
   max-width: 1200px;
+  margin: auto;
 }
 
 header {
   display: flex;
   justify-content: center;
-  background: url("/img/bg.jpg");
-  background-position: center;
+  background-color: rgba(34, 78, 121, 0.8);
+  background-blend-mode: multiply;
+  background-image: url("img/bg.jpg");
   background-size: cover;
+  background-position: center;
   align-items: center;
   height: 500px;
-  width: 100%;
 }
 
 .blue-elements {
   // shared components for all flex container elements with the blue background - work in progress though
   display: flex;
-  justify-content: center;
-  align-content: flex-start;
-  background: #224e79;
-  color: $sec-text;
-}
-
-.intro-panel {
-  display: flex;
-  justify-content: center;
-  align-content: flex-start;
+  // align-content: flex-start;
   background: #224e79;
   color: $sec-text;
 }
@@ -112,15 +108,24 @@ header {
   background-color: $bg-sec;
   font-style: italic;
   color: $header-text;
-  margin: auto;
+  
+}
+
+.intro-panel {
+  @extend .blue-elements;
+  flex-direction: column;
+  padding: 0 3rem 0 3rem;
 }
 
 .wisdom {
   display: flex;
+  flex: 1;
   flex-direction: column;
-  align-self: flex-start;
+  width: 75%;
   text-align: center;
-  padding: 1rem 2rem $b-padding 2rem;
+  padding: 1rem 3rem $b-padding 3rem;
+  margin: auto;
+  align-items: center;
 
   h2 {
     align-self: center;
@@ -133,8 +138,8 @@ header {
     background-color: $bg-sec;
     position: relative;
     top: -4.5rem;
-    align-self: center;
   }
+
   .bubble2,
   .bubble3,
   .bubble4 {
@@ -142,60 +147,92 @@ header {
   }
 }
 
+@media screen and (min-width: 700px) {
+  .intro-panel {
+    // flex-direction: row;
+  }
+  .intro-half {
+    display: flex;
+    flex-direction: row;
+    flex: 1 0;
+  }
+  .wisdom {
+    flex: 1 0;  
+    margin: initial;
+
+    .bubble2 {
+      display: block;
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .intro-half {
+    flex-direction: row;
+  }
+  .intro-panel {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: baseline;
+    border: 1px solid red;
+  }
+
+  .bubble3,
+  .bubble2,
+  .bubble4 {
+    display: block !important;
+  }
+}
+
 .skills {
+  padding: $h-padding;
+  flex-grow: 1;
+
   h2 {
     color: $header-text;
     text-align: center;
-    padding-top: $b-padding;
-  }
-
-  .skills-block {
-    // display: flex;
-    // justify-content: center;
-    // margin: $h-padding;
-    // background-color: $bg-sec;
-  }
-
-  .skills-panel {
-    display: flex;
-    // flex: 50%;
-    flex-direction: column;
-    // justify-items: center;
-    // align-items: center;
-    // background-color: $bg-sec;
-    // width: 75%;
+    padding-bottom: $b-padding;
   }
 
   .skill {
     display: flex;
-    // justify-content: flex-start;
-    // justify-self: center;
-    // align-self: center;
-    // width: 75%;
-    margin: 1rem 0rem 1rem 0rem;
+    width: 50%;
+    min-width: 400px;
+    margin: 1rem auto 1rem auto;
     background-color: $sec-text;
     height: 2rem;
     border: $dark solid 1px;
     border-left: $dark solid 3px;
     border-radius: 0.3rem;
   }
+
   .skill-name {
+    flex: 0 0 8rem;
     align-self: center;
     font-weight: 500;
     padding: 0 1em 0 1em;
-    width: 5rem;
+    text-align: right;
   }
 
   .skill-bar {
-    background: $header-text;
-    color: $sec-text;
+    flex: 1;
+    background: $sec-text;
+    height: 2rem;
+  }
+
+  .knob {
+    background-color: $header-text;
   }
 }
 
 .portfolio {
-  @extend .blue-elements;
+  display: flex;
   flex-direction: column;
-  padding-bottom: $b-padding;
+  justify-content: center;
+  align-items: center;
+  // align-content: flex-start;
+  background: #224e79;
+  color: $sec-text;
 
   h2 {
     text-align: center;
@@ -203,34 +240,36 @@ header {
     color: $sec-text;
   }
 
+  .project {
+    text-align: center;
+    border: $dark 1px solid;
+    border-radius: 0.5rem;
+    margin: 0.5rem 10vw $b-padding 10vw;
+    background: $sec-text;
+    color: $dark;
+    max-width: 600px;
+
+    img {
+      max-width: 50%;
+      min-width: 250px;
+      margin: 1rem 0 1rem 0;
+    }
+
+    p {
+      margin: 0 0.5rem 1rem 0.5rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1000px) {
   .portfolio-panel {
     display: flex;
     flex-direction: row;
-  }
-}
+    padding: 0 2rem 0 2rem;
 
-.project {
-  text-align: center;
-  border: $dark 1px solid;
-  border-radius: 0.5rem;
-  margin: 0.5rem 5rem 0 5rem;
-  background: $sec-text;
-  color: $dark;
-
-  img {
-    max-width: 50%;
-    margin: 1rem 0 1rem 0;
-  }
-
-  p {
-    margin: 0 0.5rem 1rem 0.5rem;
-  }
-}
-
-@media screen and (max-width: 800px) {
-  .portfolio {
-    .portfolio-panel {
-      flex-direction: column;
+    .project {
+      flex: 1 0;
+      margin: 0.5rem 2rem $b-padding 2rem;
     }
   }
 }
@@ -295,48 +334,12 @@ header {
   }
 }
 
-@media screen and (max-width: 1000px) {
-  .intro-panel {
-    align-content: center;
-    flex-direction: column;
-  }
-  .intro-lower {
-    flex-direction: row;
-    align-items: baseline;
-    justify-content: space-around;
-    width: 100%;
-    padding-bottom: $b-padding;
-  }
-
-  .bubble2 {
-    display: none;
-  }
-
-  .skills-block {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .portfolio-panel {
-    flex-direction: column;
-  }
-}
-
-@media screen and (max-width: 700px) {
-  nav {
-    flex-direction: column;
-  }
-  .nav {
-    width: 100%;
-    padding: 0.5rem 0 0.5rem 0;
-  }
-}
-
 .find-me {
   display: flex;
   flex-direction: column;
   background-color: $sec-text;
   color: $bg-pri;
+  width: 100%;
 
   h2 {
     padding: $h-padding;
@@ -370,6 +373,30 @@ header {
 
   form {
     padding-bottom: $b-padding;
+  }
+
+  .row {
+    display: flex;
+    flex-direction: column;
+
+    input, textarea {
+      flex: 1 0;
+      font-size: 1.5rem;
+      margin: 1rem;
+      border-radius: .5rem;
+      border: black solid 2px;
+      background-color:$sec-text;
+      padding: .5rem;
+      max-width: 80vw;
+    }
+  }
+}
+
+@media screen and (min-width:1000px) {
+  .contact {
+    .row {
+      flex-direction: row;
+    }
   }
 }
 
