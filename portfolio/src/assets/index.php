@@ -1,37 +1,3 @@
-
-<!DOCTYPE html>
-
-<?php
-
-require "DBBlackbox.php";
-
-session_start();
-
-$msg = [
-    "name" => null,
-    "email" => null,
-    "msg" => null,
-];
-
-if ($_POST) {
-    $msg["name"] = $_POST["name"];
-    $msg["email"] = $_POST["email"];
-    $msg["msg"] = $_POST["msg"];
-
-    $message = insert($msg);
-    header("Location: index.php#contact");
-}
-
-$messages = [];
-
-if (!empty($_SESSION['flashed_messages'])) {
-    $messages = $_SESSION['flashed_messages'];
-    unset($_SESSION['flashed_messages']);
-}
-
-?>
-
-
 <html>
 
 <head>
@@ -50,7 +16,6 @@ if (!empty($_SESSION['flashed_messages'])) {
 <body>
   <div class="container">
     <nav>
-      <div class="logo"><img src="img/logo.svg" width="32px" alt="logo"></div>
       <div class="nav"><a href="#intro-upper">HOME</a></div>
       <div class="nav"><a href="#skills">SKILLS</a></div>
       <div class="nav"><a href="#portfolio">PORTFOLIO</a></div>
@@ -59,17 +24,23 @@ if (!empty($_SESSION['flashed_messages'])) {
     </nav>
 
     <header>
-      <h1>Ahoj, this is Tomi.</h1>
+      <div class="left-wing"></div>
+      <div class="right-wing"></div>
+      <h1>Tomi Holstila</h1>
+      <h2>Full Stack Web Developer</h2>
       <div id="headline" class="h1-underline"> </div>
     </header>
 
     <section class="intro-upper">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis
-        ac
-        neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique,
-        tortor
-        mauris molestie elit, et lacinia ipsum quam nec dui.</p>
+      <p>I'm a tech-savvy, data-curious computer geek with previous
+experience in corporate jobs. I'm now refocusing my career
+path to IT following an immersive three-month in-class
+coding bootcamp. Looking for junior opportunities in web
+development, available to start in December 2018.</p>
     </section>
+    <aside>
+      
+    </aside>
 
     <section id="intro-upper" class="intro-panel">
       <div class="intro-half">
@@ -228,42 +199,7 @@ if (!empty($_SESSION['flashed_messages'])) {
       </div>
     </section>
 
-    <section id="contact" class="contact">
-      <h2>
-        Contact me
-      </h2>
-
-      <form action="" method="post">
-        <?php
-
-        if ($_POST) {
-            $messages[] = '
-            <div class="sent">
-            Thank you for your contact! I will get back to you as soon as possible.
-            </div>
-            ';
-            $_SESSION['flashed_messages'] = $messages;
-        }
-        ?>
-
-        <?php foreach ($messages as $sent): ?>
-          <div>
-              <?php echo $sent; ?>
-          </div>
-        <?php endforeach;?>
-
-        <div class="row">
-          <input type="text" class="form-control form-control-lg" placeholder="Name" name="name">
-          <input type="text" class=" form-control form-control-lg" placeholder="Email address" name ="email">
-        </div>
-        <div class="row">
-          <textarea name="msg" id="" cols="30" rows="10" placeholder="Leave me a note!"></textarea>
-        </div>
-        <div class="row">
-          <input id="submit" type="submit" value="Submit">
-        </div>
-      </form>
-    </section>
+    
 
     <footer>
       <div class="line-head">

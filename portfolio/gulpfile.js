@@ -1,8 +1,8 @@
 const gulp   = require('gulp'),
       csso   = require('gulp-csso'),
       sass   = require('gulp-sass'),
-      del    = require('del'),
-      browserSync = require('browser-sync').create();
+      del    = require('del');
+      // browserSync = require('browser-sync').create();
        
 // Start BrowserSync
 // gulp.task('browser-sync', function() {
@@ -31,7 +31,7 @@ gulp.task('css:compile', function() {
     .on('error', sass.logError)
     .pipe(csso())
     .pipe(gulp.dest('public'))
-    .pipe(browserSync.stream());
+    // .pipe(browserSync.stream());
 });
  
 // Copy all assets
@@ -43,11 +43,11 @@ gulp.task('assets:copy', function () {
 gulp.task('build', ['css:compile', 'assets:copy']);
  
 gulp.task('develop', ['build'], function() {
-  browserSync.init({
-    server: "public/"
-  });
+  // browserSync.init({
+  //   server: "public/"
+  // });
   gulp.watch('src/scss/*', ['css:compile']);
   gulp.watch('src/assets/**/*', ['assets:copy']);
-  gulp.watch('src/**/*').on("change", browserSync.reload);
+  // gulp.watch('src/**/*').on("change", browserSync.reload);
 });
 

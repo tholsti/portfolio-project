@@ -1,11 +1,6 @@
-$header-text: #a13729;
-$bg-pri: #224e79;
-$bg-sec: #ffffff;
-$sec-text: #81b4e4;
-$hover: black;
-$dark: #000000;
-$h-padding: 4rem 0 4rem 0;
-$b-padding: 4rem;
+@import '_variables.scss';
+
+
 
 * {
   margin: 0;
@@ -20,8 +15,8 @@ html {
 }
 
 body {
-  padding: 0 0.5rem 0 0.5rem;
-
+  padding: 0;
+  overflow-x: hidden;
   a {
     color: $bg-sec;
     text-decoration: none;
@@ -32,74 +27,181 @@ body {
     color: $hover;
     font-weight: 700;
   }
-
-  h1 {
-    font-size: 3rem;
-    color: $header-text;
-    text-shadow: $dark 2px 2px 2px;
-  }
-
-  
-  h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    text-align: center;
-  }
 }
 
 .container {
+  display:flex;
+  flex-direction: row;
   background-color: $bg-sec;
-  margin: 0 auto;
+  width: 100vw;
 }
+
+/* NAV BAR
+*************************************************************/
 
 nav {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 100vw;
+  padding: 0;
+  margin:0;
 
   .nav {
     color: $bg-sec;
-    background-color: $bg-pri;
+    background-color: $bg-third;
     padding: 1rem 1rem 1rem 1rem;
     text-align: center;
     flex-grow: 1;
+    z-index: 10;
   }
-  .logo {
-    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
-    margin: auto;
-  }
-}
-
-@media screen and (min-width: 700px) {
-  nav {
-    flex-direction: row;
+  
+  @media screen and (min-width: 700px) {
+      flex-direction: row;
   }
 }
 
-section {
-  max-width: 1200px;
-  margin: auto;
-}
+
+
+
+/* HEADER
+*********************************************/
 
 header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: rgba(34, 78, 121, 0.8);
-  background-blend-mode: multiply;
-  background-image: url("img/bg.jpg");
-  background-size: cover;
-  background-position: center;
-  align-items: center;
+  align-items: flex-start;
+  padding-left: 1rem;
   height: 500px;
+
+  
+  .right-wing {
+    position: absolute;
+    top:-120vmin;
+    right:-50vmin;
+    z-index: 0;
+    transform: rotate(17deg); 
+    background-color:$bg-third;
+    width: 150vmin;
+    height: 150vmin;
+    overflow-x:hidden;
+  }
+    h1 {
+    font-size: 3rem;
+    color: $dark;
+    position: relative;
+    right: 0;
+  }
+  
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-align: center;
+      z-index: 1;
+    }
 }
 
-.blue-elements {
-  // shared components for all flex container elements with the blue background - work in progress though
+/* LEFT PANEL 
+**********************************
+**********************************/
+
+aside {
+  display:flex;
+  flex-direction: column;
+  position: relative;
+  width: 450px;
+  background-color: $side-panel;
+  align-items: flex-start;
+
+  .blue-triangle {
+  width: 0; 
+  height: 0; 
+  border-bottom: 450px solid transparent;
+  border-left: 450px solid $bg-pri;
+  }
+  
+  img {
+    position: absolute;
+    top: 5rem;
+    align-self: center;
+    border-radius: 50%;
+    border: 1px solid $bg-pri;
+  }
+
+.skills {
+  padding: 2rem;
+  text-align:center;
+  
+  .skill {
+      display: flex;
+      align-self: flex-start;
+      width: 50%;
+      min-width: 350px;
+      margin: 1rem 1rem 1rem 0;
+      background-color: $sec-text;
+      height: 2rem;
+      border: $dark solid 1px;
+      border-left: $dark solid 3px;
+      border-radius: 0.3rem;
+    }
+
+    .skill-name {
+      flex: 0 0 8rem;
+      align-self: center;
+      font-weight: 500;
+      padding: 0 1em 0 1em;
+      text-align: right;
+    }
+
+    .skill-bar {
+      flex: 1;
+      height: 2rem;
+    }
+
+    .knob {
+      background-color: $header-text;
+      height: 1.9rem;
+    }
+    h2 {
+      text-align: center;
+    }
+  }
+
+  .find-me {
   display: flex;
-  // align-content: flex-start;
-  background: #224e79;
-  color: $sec-text;
+  flex-direction: column;
+  color: $bg-pri;
+  width: 100%;
+
+  h2 {
+    padding: $h-padding;
+  }
+
+  .icons {
+    justify-items: space-around;
+    a {
+      color: $bg-pri;
+    }
+    a:hover {
+      color: $hover;
+      font-weight: unset;
+    }
+    font-size: 5rem;
+    padding-bottom: $b-padding;
+    text-align: center;
+  }
+}
+}
+
+
+/* MAIN PANEL
+**********************************
+**********************************/
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
 }
 
 .intro-upper {
@@ -109,85 +211,10 @@ header {
   background-color: $bg-sec;
   font-style: italic;
   color: $header-text;
-  
-}
-
-.intro-panel {
-  @extend .blue-elements;
-  flex-direction: column;
-  padding: 0 3rem 0 3rem;
-}
-
-.wisdom {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  // width: 75%;
-  text-align: center;
-  padding: 1rem 3rem $b-padding 3rem;
   margin: auto;
-  align-items: center;
-
-  h2 {
-    align-self: center;
-  }
-
-  .bubble {
-    width: 7rem;
-    height: 7rem;
-    border-radius: 50%;
-    background-color: $bg-sec;
-    position: relative;
-    top: -4.5rem;
-  }
-
-  .bubble2,
-  .bubble3,
-  .bubble4 {
-    display: none;
-  }
 }
 
-@media screen and (min-width: 700px) {
-  .intro-panel {
-    // flex-direction: row;
-  }
-  .intro-half {
-    display: flex;
-    flex-direction: row;
-    flex: 1 0;
-  }
-  .wisdom {
-    flex: 1 0;  
-    margin: initial;
-    align-items: space-around;
 
-    .bubble2 {
-      display: block;
-    }
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  .intro-half {
-    flex-direction: row;
-  }
-  .intro-panel {
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: baseline;
-  }
-
-  .bubble3,
-  .bubble2,
-  .bubble4 {
-    display: block !important;
-  }
-}
-
-.skills {
-  padding: $h-padding;
-  flex-grow: 1;
 
   h2 {
     color: $header-text;
@@ -195,46 +222,13 @@ header {
     padding-bottom: $b-padding;
   }
 
-  .skill {
-    display: flex;
-    width: 50%;
-    min-width: 400px;
-    margin: 1rem auto 1rem auto;
-    background-color: $sec-text;
-    height: 2rem;
-    border: $dark solid 1px;
-    border-left: $dark solid 3px;
-    border-radius: 0.3rem;
-  }
-
-  .skill-name {
-    flex: 0 0 8rem;
-    align-self: center;
-    font-weight: 500;
-    padding: 0 1em 0 1em;
-    text-align: right;
-  }
-
-  .skill-bar {
-    flex: 1;
-    // background: $sec-text;
-    height: 2rem;
-
-  }
-
-  .knob {
-    background-color: $header-text;
-    height: 1.9rem;
-  }
-}
-
 .portfolio {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   // align-content: flex-start;
-  background: #224e79;
+  background: $bg-sec;
   color: $sec-text;
 
   h2 {
@@ -248,7 +242,7 @@ header {
     border: $dark 1px solid;
     border-radius: 0.5rem;
     margin: 0.5rem 10vw $b-padding 10vw;
-    background: $sec-text;
+    background: $side-panel;
     color: $dark;
     max-width: 600px;
 
@@ -264,7 +258,7 @@ header {
   }
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1600px) {
   .portfolio-panel {
     display: flex;
     flex-direction: row;
@@ -279,7 +273,7 @@ header {
 
 .about {
   h2 {
-    margin: $h-padding;
+    padding: $h-padding;
     color: $header-text;
   }
 
@@ -287,6 +281,7 @@ header {
     display: flex;
     flex-direction: row;
     padding: 0 0 5rem 0;
+    justify-content: center;
 
     .about-item {
       display: flex;
@@ -297,15 +292,13 @@ header {
       height: 100%;
     }
 
-    img {
-      border-radius: 50%;
-      border: 1px solid $bg-pri;
-    }
+    
 
     .about-text {
       flex-direction: column;
       justify-content: flex-start;
-      padding: 0 5rem $b-padding 2.5rem;
+      padding: 0 5rem 0 2.5rem;
+      text-align:center;
     }
   }
 
@@ -337,71 +330,7 @@ header {
   }
 }
 
-.find-me {
-  display: flex;
-  flex-direction: column;
-  background-color: $sec-text;
-  color: $bg-pri;
-  width: 100%;
 
-  h2 {
-    padding: $h-padding;
-  }
-
-  .icons {
-    justify-items: space-around;
-    a {
-      color: $bg-pri;
-    }
-    a:hover {
-      color: $hover;
-      font-weight: unset;
-    }
-    font-size: 5rem;
-    padding-bottom: $b-padding;
-    text-align: center;
-  }
-}
-
-.contact {
-  display: flex;
-  background-color: $bg-pri;
-  flex-direction: column;
-  align-items: center;
-
-  h2 {
-    margin: $h-padding;
-    color: $sec-text;
-  }
-
-  form {
-    padding-bottom: $b-padding;
-  }
-
-  .row {
-    display: flex;
-    flex-direction: column;
-
-    input, textarea {
-      flex: 1 0;
-      font-size: 1.25rem;
-      margin: 1rem;
-      border-radius: .5rem;
-      border: black solid 2px;
-      background-color:$sec-text;
-      padding: .5rem;
-      max-width: 80vw;
-    }
-  }
-}
-
-@media screen and (min-width:1000px) {
-  .contact {
-    .row {
-      flex-direction: row;
-    }
-  }
-}
 
 footer {
   text-align: center;
@@ -428,7 +357,7 @@ footer {
   text-align: center;
 }
 
-// animations
+animations
 
   
 .h1-underline {
@@ -437,7 +366,7 @@ footer {
 }
 
 .h1-underline-end {
-  width: 80vw;
+  width: 80%;
   height: .5rem;
   transition-delay: 1s;
   transition-duration: 1s;
