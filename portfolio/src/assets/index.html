@@ -14,44 +14,43 @@
 </head>
 
 <body>
-    <nav>
-      <div class="nav"><a href="#intro-upper">HOME</a></div>
-      <div class="nav"><a href="#skills">SKILLS</a></div>
-      <div class="nav"><a href="#portfolio">PORTFOLIO</a></div>
-      <div class="nav"><a href="#about-me">ABOUT ME</a></div>
-      <div class="nav"><a href="#contact">CONTACT</a></div>
-    </nav>
+  <nav>
+    <div class="nav"><a href="#skills">SKILLS</a></div>
+    <div class="nav"><a href="#portfolio">PORTFOLIO</a></div>
+    <div class="nav"><a href="#about-me">ABOUT ME</a></div>
+    <div class="nav"><a href="#find-me">CONTACT</a></div>
+  </nav>
 
-    
-    
+
+
   <div class="container">
     <aside>
       <div class="blue-triangle">
       </div>
-        <img src="img/doge2.jpg" alt="me">
+      <img src="img/pic3.png" alt="me">
 
       <section id="skills" class="skills">
-        <h2>My skills</h2>
-  
+        <h2>Skills</h2>
+
         <div class="skill">
           <div class="skill-name">
             HTML5
           </div>
-  
+
           <div class="skill-bar">
-            <div class="knob wow growBar" style="width:100%"> </div>
+            <div class="knob wow growBar" style="width:90%"> </div>
           </div>
         </div>
-  
+
         <div class="skill">
           <div class="skill-name">
             CSS3 / SASS
           </div>
           <div class="skill-bar">
-            <div class="knob wow growBar" style="width:75%"></div>
+            <div class="knob wow growBar" style="width:70%"></div>
           </div>
         </div>
-  
+
         <div class="skill">
           <div class="skill-name">
             JAVASCRIPT
@@ -60,7 +59,7 @@
             <div class="knob wow growBar" style="width:50%"></div>
           </div>
         </div>
-  
+
         <div class="skill">
           <div class="skill-name">
             REACT.JS
@@ -69,7 +68,7 @@
             <div class="knob wow growBar" style="width:60%"></div>
           </div>
         </div>
-  
+
         <div class="skill">
           <div class="skill-name">
             PHP
@@ -78,7 +77,7 @@
             <div class="knob wow growBar" style="width:50%"></div>
           </div>
         </div>
-  
+
         <div class="skill">
           <div class="skill-name">
             MYSQL
@@ -88,15 +87,15 @@
           </div>
         </div>
       </section>
-      
+
       <section id="find-me" class="find-me">
         <h2>
           Find me
         </h2>
         <div class="icons wow tada">
-          <a href="#"><i class="fab fa-facebook-square"></i></a>
-          <a href="#"><i class="fab fa-github-square"></i></a>
-          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a target="_blank" href="https://www.facebook.com/tomi.holstila"><i class="fab fa-facebook-square"></i></a>
+          <a target="_blank" href="https://github.com/tholsti/"><i class="fab fa-github-square"></i></a>
+          <a target="_blank" href="https://www.linkedin.com/in/tomi-holstila/"><i class="fab fa-linkedin"></i></a>
         </div>
       </section>
 
@@ -110,67 +109,74 @@
         <div id="headline" class="h1-underline"> </div>
       </header>
 
-      <section class="intro-upper">
+      <section class="intro-upper" id="home">
         I'm a tech-savvy, data-curious computer geek with previous
-  experience in corporate jobs. I'm now refocusing my career
-  path to IT following an immersive three-month in-class
-  coding bootcamp. Looking for junior opportunities in web
-  development, available to start in December 2018.
+        experience in corporate jobs. I'm now refocusing my career
+        path to IT following an immersive three-month in-class
+        coding bootcamp. Looking for junior opportunities in web
+        development, available to start in December 2018.
       </section>
-  
-      
-  
+
+
+
       <section id="portfolio" class="portfolio">
         <h2>
           Portfolio
         </h2>
-        <div class="portfolio-panel">
-          <div class="project">
-            <img src="img/Doge3.jpg" alt="Project 1">
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque placeat quas omnis sapiente earum
-              doloremque voluptatem ex autem quia labore reiciendis, ducimus similique facere quaerat, saepe repudiandae
-              tempore, incidunt hic minus? Laboriosam a excepturi hic.</p>
-          </div>
-          <div class="project">
-            <img src="img/Doge3.jpg" alt="Project 2">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, tenetur quasi dolorem pariatur debitis
-              voluptatum deleniti illo non repellendus iste repellat dolore totam natus iusto, asperiores assumenda,
-              consequuntur rem harum ea dolorum facilis. Repellendus illo delectus animi impedit ipsa dolore rem a
-              tempora, porro maiores error corrupti temporibus in neque.</p>
-          </div>
+        <div class="project">
+          <h3>ScratchMapp</h3>
+          <img src="img/scratchmapp.jpg" alt="ScratchMapp screenshot">
+          <p>
+            ScratchMapp was the final project at the <a target="_blank" href="https://www.codingbootcamp.cz">Coding
+              Bootcamp</a>. In a team of three and just five weeks of time, we completed a project where users can
+            create a profile and save the countries of the world they've visited by clicking on an interactive map.
+            Features also include city views showing top attractions of the city, search bar, and multiple API
+            endpoints
+          </p>
+          <p>
+            Backend for the project was created with the Laravel PHP MVC framework, MySQL database and Ajax queries for asynchronous data handling. Map view was created with the MapBox Javascript platform, and further functionality as Javascript and React components.
+          </p> 
+            Links: <a href="http://ScratchMapp.data4you.cz" target="_blank">ScratchMapp demo</a> |
+            <a href="https://github.com/jakemox/scratchmap" target="_blank">GitHub repository</a>
         </div>
-        
+        <div class="project">
+          <h3>Flight-O-Matic</h3>
+          <img src="img/flightomatic.jpg" alt="Flight-O-Matic screenshot">
+          <p>
+            The project started as a 7-hour React hackathon at the bootcamp. I've then cloned the project to create my
+            own React playground, and written most the app fully from ground up again. Based on user input, it finds the cheapest flights between any two cities in the world within a given range of dates.
+            </p>
+            Links: <a href="https://github.com/tholsti/Flight-O-Matic" target="_blank">GitHub repository</a>
+          </p>
+        </div>
+        <div class="project last">
+          See more of my work at <a href="https://github.com/tholsti/" target="_blank">GitHub</a>
+        </div>
+
       </section>
-  
+
       <section id="about-me" class="about">
         <h2>About me</h2>
-        <div class="about-panel">
-  
-          <div class="about-item about-text">
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam veritatis, tempore magni sunt officia
-              in explicabo numquam perspiciatis at eum minus porro ducimus id nemo aperiam fugit, ratione excepturi ab
-              odit enim possimus! Repellat, libero beatae? Magnam, dolorem reiciendis, magni consequatur sunt assumenda
-              et dignissimos suscipit nesciunt distinctio totam fugiat!</p>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui, quo inventore rerum temporibus sapiente
-              quas voluptate in sed ea natus, dolor totam repellendus quidem ducimus libero iste explicabo facere. Iste
-              eius sint provident molestias a earum magnam omnis sapiente iure. Consequatur omnis aliquam ducimus
-              eligendi architecto minus repellendus, quod veritatis.</p>
+
+          <div class="about-text">
+            <p>I settled in Prague in early 2014 and worked at multinational companies since then, most recently at an analyst position at Amazon.com. However, I never felt that the work I was doing really allowed me to utilize my greatest strengths or gave me a sense of meaningfulness at work. What keeps me going is learning and improving day-to-day, having inspiring colleagues around me, and solving problems that I may have thought earlier I wouldn't be able to handle.</p>
+            <p>I am early in my journey as a developer, but I hope the projects I've put on display here show that I truly have the desire to create clever things and a commitment to write good quality code, and the capabilities it takes to become a good developer.</p>
           </div>
-  
+
       </section>
-  
-      
-  
-      
-  
+
+
+
+
+
       <footer>
         <div class="line-head">
           <div class="line wow bounceInLeft"></div>
-          <h2>Nice to meet you</h2>
+          <h2>Thanks for stopping by!</h2>
           <div class="line wow bounceInRight"></div>
         </div>
         Copyright Tomi Holstila 2018
-  
+
       </footer>
     </main>
   </div>

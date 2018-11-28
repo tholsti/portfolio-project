@@ -11,9 +11,4 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-let submit = document.getElementById("submit");
-  submit.addEventListener("click", function() {
-    document.getElementById("sent").classList.add("sent");
-  });
-
 new WOW().init();

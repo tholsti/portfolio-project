@@ -1,5 +1,5 @@
 @import '_variables.scss';
-
+@import 'animate.scss';
 
 
 * {
@@ -17,6 +17,8 @@ html {
 body {
   padding: 0;
   overflow-x: hidden;
+
+
   a {
     color: $bg-sec;
     text-decoration: none;
@@ -30,10 +32,22 @@ body {
 }
 
 .container {
-  display:flex;
+  display: flex;
   flex-direction: row;
   background-color: $bg-sec;
-  width: 100vw;
+  max-width: 1200px;
+  margin: auto;
+  border-left: 1px;
+  border-right: 1px;
+  border-top: 0;
+  border-bottom: 0;
+  border-color: black;
+  border-style: solid;
+
+  @media screen and (max-width: 700px) {
+    flex-direction: column;
+  }
+
 }
 
 /* NAV BAR
@@ -41,10 +55,13 @@ body {
 
 nav {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   width: 100vw;
   padding: 0;
-  margin:0;
+  margin: 0;
+  position: fixed;
+  z-index: 10;
+  // height: 70px;
 
   .nav {
     color: $bg-sec;
@@ -54,98 +71,81 @@ nav {
     flex-grow: 1;
     z-index: 10;
   }
-  
-  @media screen and (min-width: 700px) {
-      flex-direction: row;
+
+  @media screen and (max-width: 700px) {
+    flex-direction: column;
+    position: static;
   }
 }
 
-
-
-
-/* HEADER
-*********************************************/
-
-header {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  padding-left: 1rem;
-  height: 500px;
-
-  
-  .right-wing {
-    position: absolute;
-    top:-120vmin;
-    right:-50vmin;
-    z-index: 0;
-    transform: rotate(17deg); 
-    background-color:$bg-third;
-    width: 150vmin;
-    height: 150vmin;
-    overflow-x:hidden;
-  }
-    h1 {
-    font-size: 3rem;
-    color: $dark;
-    position: relative;
-    right: 0;
-  }
-  
-    h2 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      text-align: center;
-      z-index: 1;
-    }
-}
 
 /* LEFT PANEL 
 **********************************
 **********************************/
 
 aside {
-  display:flex;
+  display: flex;
   flex-direction: column;
+  align-items: center;
   position: relative;
   width: 450px;
   background-color: $side-panel;
-  align-items: flex-start;
+  top: 70px;
+
+  @media screen and (max-width: 700px) {
+    width: 100%;
+    position: unset;
+  }
 
   .blue-triangle {
-  width: 0; 
-  height: 0; 
-  border-bottom: 450px solid transparent;
-  border-left: 450px solid $bg-pri;
+    width: 0;
+    height: 0;
+    border-bottom: 450px solid transparent;
+    border-left: 450px solid $bg-pri;
+    @media screen and (max-width: 700px) {
+      border-bottom: 100vw solid transparent;
+      border-left: 100vw solid $bg-pri;
+      position: absolute;
+    }
   }
-  
+
   img {
     position: absolute;
     top: 5rem;
-    align-self: center;
-    border-radius: 50%;
     border: 1px solid $bg-pri;
+    width: 72%;
+    border-radius: 50%;
+    margin: auto;
+    @media screen and (max-width: 700px) {
+      top: unset;
+      position: unset;
+      z-index: 1;
+      padding-top: 3rem;
+    }
   }
 
-.skills {
-  padding: 2rem;
-  text-align:center;
-  
-  .skill {
+  h2 {
+    text-align: center;
+    color: $bg-pri;
+  }
+
+  .skills {
+    padding: 2rem;
+    text-align: center;
+
+    .skill {
       display: flex;
       align-self: flex-start;
       width: 50%;
       min-width: 350px;
       margin: 1rem 1rem 1rem 0;
-      background-color: $sec-text;
-      height: 2rem;
+      background-color: $bg-sec;
+      height: 30px;
       border: $dark solid 1px;
-      border-left: $dark solid 3px;
-      border-radius: 0.3rem;
     }
 
     .skill-name {
+
       flex: 0 0 8rem;
       align-self: center;
       font-weight: 500;
@@ -155,42 +155,40 @@ aside {
 
     .skill-bar {
       flex: 1;
-      height: 2rem;
+      height: 30px;
+      align-items: center;
+      display: flex;
     }
 
     .knob {
-      background-color: $header-text;
-      height: 1.9rem;
-    }
-    h2 {
-      text-align: center;
+      background-color: $bg-third;
+      height: 100%;
     }
   }
 
   .find-me {
-  display: flex;
-  flex-direction: column;
-  color: $bg-pri;
-  width: 100%;
+    display: flex;
+    flex-direction: column;
+    color: $bg-pri;
+    width: 100%;
 
-  h2 {
-    padding: $h-padding;
-  }
+    .icons {
+      justify-items: space-around;
 
-  .icons {
-    justify-items: space-around;
-    a {
-      color: $bg-pri;
+      a {
+        color: $bg-pri;
+      }
+
+      a:hover {
+        color: $hover;
+        font-weight: unset;
+      }
+
+      font-size: 5rem;
+      padding-bottom: $b-padding;
+      text-align: center;
     }
-    a:hover {
-      color: $hover;
-      font-weight: unset;
-    }
-    font-size: 5rem;
-    padding-bottom: $b-padding;
-    text-align: center;
   }
-}
 }
 
 
@@ -202,12 +200,66 @@ main {
   display: flex;
   flex-direction: column;
   justify-items: center;
+  width: 100%;
 }
+
+/* HEADER
+*********************************************/
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding-left: 1rem;
+  height: 400px;
+  margin-bottom: 2rem;
+
+  @media screen and (max-width: 700px) {
+    display: none;
+  }
+
+
+  .right-wing {
+    position: absolute;
+    top: -120vmin;
+    right: -50vmin;
+    z-index: 0;
+    transform: rotate(17deg);
+    background-color: $bg-third;
+    width: 150vmin;
+    height: 150vmin;
+    overflow-x: hidden;
+
+  }
+
+  h1 {
+    font-size: 3rem;
+    color: $dark;
+    position: relative;
+    right: 0;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    z-index: 1;
+  }
+}
+
+.links {
+  text-align: center;
+  margin: auto;
+}
+
+/* INTRO
+*********************************************/
 
 .intro-upper {
   text-align: center;
   padding: $h-padding;
-  width: 60%;
+  // width: 60%;
   background-color: $bg-sec;
   font-style: italic;
   color: $header-text;
@@ -215,12 +267,8 @@ main {
 }
 
 
-
-  h2 {
-    color: $header-text;
-    text-align: center;
-    padding-bottom: $b-padding;
-  }
+/* PORTFOLIO
+*********************************************/
 
 .portfolio {
   display: flex;
@@ -234,20 +282,28 @@ main {
   h2 {
     text-align: center;
     padding: $h-padding;
-    color: $sec-text;
+    color: $header-text;
   }
 
   .project {
     text-align: center;
-    border: $dark 1px solid;
-    border-radius: 0.5rem;
-    margin: 0.5rem 10vw $b-padding 10vw;
-    background: $side-panel;
     color: $dark;
     max-width: 600px;
+    border-bottom: 1px solid $dark;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+
+    a {
+      color: $dark;
+      font-weight: bold;
+    }
+
+    a:hover {
+      color: $bg-pri;
+    }
 
     img {
-      max-width: 50%;
+      max-width: 90%;
       min-width: 250px;
       margin: 1rem 0 1rem 0;
     }
@@ -255,6 +311,15 @@ main {
     p {
       margin: 0 0.5rem 1rem 0.5rem;
     }
+
+  }
+
+  .last {
+    border-bottom: 0;
+  }
+
+  .project:hover {
+    background-color: lightyellow;
   }
 }
 
@@ -271,82 +336,52 @@ main {
   }
 }
 
+/* ABOUT ME
+*********************************/
+
 .about {
   h2 {
     padding: $h-padding;
     color: $header-text;
-  }
-
-  .about-panel {
-    display: flex;
-    flex-direction: row;
-    padding: 0 0 5rem 0;
-    justify-content: center;
-
-    .about-item {
-      display: flex;
-      justify-content: flex-end;
-      width: 50vw;
-      background: $bg-sec;
-      padding: 0 2.5rem $b-padding 5rem;
-      height: 100%;
-    }
-
-    
-
-    .about-text {
-      flex-direction: column;
-      justify-content: flex-start;
-      padding: 0 5rem 0 2.5rem;
-      text-align:center;
-    }
-  }
-
-  @media screen and (max-width: 800px) {
-    .about-panel {
-      flex-direction: column;
-    }
-  }
-
-  .about-item {
-    padding: 0 0 0 0;
-    margin: 0;
-    width: 100%;
-  }
-}
-
-@media screen and (max-width: 1000px) {
-  .about-panel {
-    flex-direction: column;
-    align-items: center;
     text-align: center;
   }
-  .about .about-panel .about-item {
-    justify-content: center;
-    padding: 0 0 3rem 0;
+
+  .about-text {
+    width: 90%;
+    text-align: center;
+    margin: auto;
+
+    p {
+      text-align: justify;
+      padding-bottom: .5rem;
+    }
   }
-  .about .about-text {
-    padding: 0 0 0 0;
-  }
+
 }
 
 
+/* FOOTER
+*************************************/
 
 footer {
   text-align: center;
   padding: $b-padding;
 
   h2 {
+    text-align: center;
+    padding: $h-padding;
     color: $header-text;
   }
+
   .line {
     flex: 1;
     height: 6px;
     margin: 0 1rem;
     background-color: $bg-pri;
   }
+
   .line-head {
-    display:flex;
+    display: flex;
     align-items: center;
   }
 }
@@ -357,11 +392,14 @@ footer {
   text-align: center;
 }
 
-animations
 
-  
+/* ANIMATIONS
+******************************************
+******************************************/
+
+
 .h1-underline {
-  width:20px;
+  width: 20px;
   background-color: $header-text;
 }
 
@@ -370,7 +408,7 @@ animations
   height: .5rem;
   transition-delay: 1s;
   transition-duration: 1s;
-} 
+}
 
 @keyframes growBar {
   from {
